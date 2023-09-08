@@ -7,7 +7,7 @@ import { SearchComponent } from './search/search.component';
 import { AccountComponent } from './account/account.component';
 import { CartComponent } from './cart/cart.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'product', component: ProductComponent },
   { path: 'search', component: SearchComponent },
