@@ -1,1 +1,39 @@
-<p>home works!</p>
+<ng-container *ngIf="(productsCategoriesErrored$ | async) as productsCategoriesError">
+    <div id='productsCategoriesErrorMessage' class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-danger d-flex align-items-center" role="alert">
+                    <p class="m-0">{{ productsCategoriesError }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<ng-container *ngIf="(productsErrored$ | async) as productsError">
+    <div id='productsErrorMessage' class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-danger d-flex align-items-center" role="alert">
+                    <p class="m-0">{{ productsError }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="!(productsCategoriesErrored$ | async)">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center pt-4">Browse products by category</h1>
+            </div>
+        </div>
+        <div class="row p-5">
+            <a routerLink="/search" *ngFor="let category of productsCategories$ | async"
+                class="category-link m-1 p-4 bg-light link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                style="width: 18rem;">
+                <h5 class="card-title">{{category}}</h5>
+            </a>
+        </div>
+    </div>
+</ng-container>
