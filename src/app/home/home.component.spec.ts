@@ -5,6 +5,7 @@ import { StoreService } from '../store.service';
 import { of } from 'rxjs';
 import { By } from '@angular/platform-browser';
 import { dummyDataCategoriesAPI } from '../models';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -14,7 +15,7 @@ describe('HomeComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [HomeComponent],
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule, RouterTestingModule]
     })
       .compileComponents();
 

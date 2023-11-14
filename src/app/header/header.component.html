@@ -138,9 +138,10 @@
             </div>
             <div class="col-6 fs-1 d-flex align-items-center">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Cherchez un produit..."
-                        aria-label="Recherche produit" aria-describedby="basic-addon2">
-                    <button class="input-group-text" id="basic-addon2">Search !</button>
+                    <input (keyup)="handleKeyUp($event)" type="text" class="form-control"
+                        placeholder="Cherchez un produit..." aria-label="Recherche produit"
+                        aria-describedby="basic-addon2">
+                    <button class="input-group-text" id="basic-addon2" (click)="handleSubmit()">Search !</button>
                 </div>
             </div>
             <div class="col-3 d-flex align-items-center">
@@ -283,7 +284,10 @@
                                                 fill="#4dbe86" />
                                             <circle cx="38" cy="40" r="4" fill="#525057" />
                                         </svg>
-                                        <span>Panier</span>
+                                        <span style="position: relative;">Panier
+                                            <span style="position: absolute; top: -16px; right: -16px;"
+                                                class="badge text-bg-danger">{{ numberOfProductsInCart$ | async
+                                                }}</span></span>
                                     </a>
                                 </li>
                             </ul>

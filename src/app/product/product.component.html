@@ -1,1 +1,31 @@
-<p>product works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <a routerLink="{{previousPage}}" class="btn btn-default">&#10094; Retour</a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="text-center">Product Page</h2>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <ng-container *ngIf="(data$ | async) as product">
+                <div class="py-5">
+                    <h2>{{ product[0].title }}</h2>
+                    <img src="{{product[0].thumbnail}}" alt="{{product[0].title}}" />
+                    <p>{{ product[0].brand }}</p>
+                    <p>{{ product[0].description }}</p>
+                    <p>{{ product[0].price }} €</p>
+                    <p>{{ product[0].rating }}/5</p>
+                    <button type="button" class="btn btn-success">Ajouter au panier !</button>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

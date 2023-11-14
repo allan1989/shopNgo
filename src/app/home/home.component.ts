@@ -11,9 +11,11 @@ export class HomeComponent implements OnInit {
   public productsCategories$!: Observable<string[] | null>;
   public productsCategoriesErrored$!: Observable<null | string>;
   public productsErrored$!: Observable<null | string>;
-  public readonly storeService!: StoreService;
+  public previousPage: string | undefined = '';
 
-  constructor(storeService: StoreService) {
+  constructor(
+    private storeService: StoreService
+  ) {
     this.storeService = storeService
   }
 

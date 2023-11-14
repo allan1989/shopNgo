@@ -1,1 +1,28 @@
-<p>cart works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2>Votre panier:</h2>
+        </div>
+    </div>
+    <ng-container *ngIf="(data$ | async ) as data">
+        <div *ngIf="data.length === 0; else elseBlock">No products !</div>
+        <ng-template #elseBlock>
+            <div class="row">
+                <div class="col-12">
+                    <ul class="list-group">
+                        <li *ngFor="let product of data" class="d-flex mb-5">
+                            <span class="col-3">{{product.title}}</span>
+                            <span class="col-3">{{product.category}}</span>
+                            <span class="col-3">{{product.price}}€</span>
+                            <span>Quantity:
+                                <select>
+                                    <option *ngFor="let q of quantityLimit" value="{{q}}">{{q}}</option>
+                                </select>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </ng-template>
+    </ng-container>
+</div>
